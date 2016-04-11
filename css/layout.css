@@ -2,3 +2,15 @@
 Axis Maps
 - Project specific Layout CSS rules
 -------------------------*/
+
+body {
+  padding-top: 50px; /* deal with bootstrap nav bar */
+}
+
+.navbar-brand {
+  /*padding: 0 15px;*/
+}
+
+.navbar-brand img {
+  height: 20px;
+}
