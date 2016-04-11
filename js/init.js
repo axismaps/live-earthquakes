@@ -21,25 +21,25 @@
   var earthquake;
 
   L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-	   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-     subdomains: 'abcd',
-     maxZoom: 19,
-   }).addTo(atlas);
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+    subdomains: 'abcd',
+    maxZoom: 19,
+  }).addTo(atlas);
 
-   /* ------ Default values ------ */
-   var geojsonMarkerOptions = {
+  /* ------ Default values ------ */
+  var geojsonMarkerOptions = {
      radius: 8,
-     fillColor: "#de2d26",
-     color: "#000",
+     fillColor: '#de2d26',
+     color: '#000',
      weight: 1,
      opacity: 0.8,
-     fillOpacity: 0.6
+     fillOpacity: 0.6,
    };
 
-   /* ------ USGS feeds ------ */
-   addLayer(); //initial load
+  /* ------ USGS feeds ------ */
+  addLayer(); //initial load
 
-   function addLayer() {
+  function addLayer() {
      if (earthquake) atlas.removeLayer(earthquake);
 
      var feed = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/' + mag + '_' + timespan + '.geojson';
@@ -56,20 +56,21 @@
            geojsonMarkerOptions.radius = Math.round(magnitude + 3);
            return L.circleMarker(latlng, geojsonMarkerOptions);
          },
+
          onEachFeature: function (feature, layer) {
            layer
             .on('mouseover', function (e) { showProbe(e); })
             .on('mouseout', hideProbe);
-         }
+         },
        }).addTo(atlas);
      });
    }
 
-   /* ------ Probe ------ */
+  /* ------ Probe ------ */
 
-   var probeTimeout;
+  var probeTimeout;
 
-   $('.probe')
+  $('.probe')
      .on('mouseover', function () {
        clearTimeout(probeTimeout);
      })
@@ -79,7 +80,7 @@
        }, 100);
      });
 
-   function showProbe(e) {
+  function showProbe(e) {
      clearTimeout(probeTimeout);
 
      var props = e.target.feature.properties;
@@ -97,7 +98,7 @@
       .show();
    }
 
-   function hideProbe() {
+  function hideProbe() {
      probeTimeout = setTimeout(function () {
        $('.probe').hide();
      }, 100);
