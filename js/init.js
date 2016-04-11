@@ -5,11 +5,15 @@
   var timespan = 'week';
 
   $('.time-span-dd').next().find('a').on('click', function () {
+    $('.time-span-dd').next().find('a.bg-info').removeClass('bg-info');
+    $(this).addClass('bg-info');
     timespan = $(this).attr('data-target');
     addLayer();
   });
 
   $('.mag-dd').next().find('a').on('click', function () {
+    $('.mag-dd').next().find('a.bg-info').removeClass('bg-info');
+    $(this).addClass('bg-info');
     mag = $(this).attr('data-target');
     addLayer();
   });
