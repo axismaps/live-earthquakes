@@ -59,7 +59,7 @@
 
          onEachFeature: function (feature, layer) {
            layer
-            .on('mouseover', function (e) { showProbe(e); })
+            .on('mouseover click', function (e) { showProbe(e); })
             .on('mouseout', hideProbe);
          },
        }).addTo(atlas);
@@ -79,6 +79,8 @@
          $('.probe').hide();
        }, 100);
      });
+
+  $('.map').on('click', hideProbe);
 
   function showProbe(e) {
      clearTimeout(probeTimeout);
