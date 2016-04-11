@@ -5,15 +5,13 @@
   var timespan = 'week';
 
   $('.time-span-dd').next().find('a').on('click', function () {
-    $('.time-span-dd').next().find('a.bg-info').removeClass('bg-info');
-    $(this).addClass('bg-info');
+    $('.time-span-dd .dd-text').text($(this).text());
     timespan = $(this).attr('data-target');
     addLayer();
   });
 
   $('.mag-dd').next().find('a').on('click', function () {
-    $('.mag-dd').next().find('a.bg-info').removeClass('bg-info');
-    $(this).addClass('bg-info');
+    $('.mag-dd .dd-text').text($(this).text());
     mag = $(this).attr('data-target');
     addLayer();
   });
@@ -47,8 +45,7 @@
      var feed = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/' + mag + '_' + timespan + '.geojson';
      $.getJSON(feed, function (jsondata) {
 
-       //update metadata on nav bar
-       $('.current-feed').text(jsondata.metadata.title);
+       //update timestamp on nav bar
        var time = Math.round(($.now() - jsondata.metadata.generated) / 1000 / 60);
        var textTime = time == 1 ? '1 minute' : time + ' minutes';
        $('.timestamp').text(textTime);

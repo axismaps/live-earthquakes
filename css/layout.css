@@ -15,15 +15,6 @@ body {
   height: 20px;
 }
 
-.current-feed--wrapper {
-  float: right;
-  text-align: right;
-}
-
-.current-feed {
-  font-weight: bold;
-}
-
 .timestamp--wrapper {
   float: right;
 }
