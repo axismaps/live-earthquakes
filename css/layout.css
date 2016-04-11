@@ -52,3 +52,9 @@ body {
 	border-width: 21px;
 	margin-left: -21px;
 }
+
+@media (max-width: 500px) {
+  .probe {
+    width: 200px;
+  }
+}
