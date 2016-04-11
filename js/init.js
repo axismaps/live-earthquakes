@@ -87,10 +87,12 @@
      $('.probe--place').text(props.place);
      $('.probe--url').html('<a href="' + props.url + '">' + props.url + '</a>');
 
+     var pointLocation = atlas.latLngToContainerPoint(e.target.getLatLng());
+
      $('.probe')
       .css({
-        left: e.target._point.x - ($('.probe').width() / 2) - 11,
-        top: e.target._point.y - ($('.probe').height()) + 2,
+        left: pointLocation.x - ($('.probe').width() / 2) - 11,
+        top: pointLocation.y - ($('.probe').height()) + 2,
       })
       .show();
    }
@@ -98,6 +100,6 @@
    function hideProbe() {
      probeTimeout = setTimeout(function () {
        $('.probe').hide();
-     }, 200);
+     }, 100);
    }
 })(jQuery, L);
