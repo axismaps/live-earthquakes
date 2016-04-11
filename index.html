@@ -22,8 +22,11 @@
 
         <!-- Nav bar header -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapsed-buttons" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="http://www.axismaps.com">
             <img alt="Brand" src="http://www.axismaps.com/images/logo.png">
@@ -31,7 +34,7 @@
         </div>
 
         <!-- Nav bar buttons -->
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="navbar-collapsed-buttons">
           <ul class="nav navbar-nav">
 
             <p class="navbar-text strong">Current USGS Earthquake Feed: </p>
@@ -40,10 +43,10 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle time-span-dd" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="dd-text">Week</span> <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#" data-target="hour">Hour</a></li>
-                <li><a href="#" data-target="day">Day</a></li>
-                <li><a href="#" data-target="week">Week</a></li>
-                <li><a href="#" data-target="month">Month</a></li>
+                <li><a href="#" data-toggle="collapse" data-target="#navbar-collapsed-buttons" data-value="hour">Hour</a></li>
+                <li><a href="#" data-toggle="collapse" data-target="#navbar-collapsed-buttons" data-value="day">Day</a></li>
+                <li><a href="#" data-toggle="collapse" data-target="#navbar-collapsed-buttons" data-value="week">Week</a></li>
+                <li><a href="#" data-toggle="collapse" data-target="#navbar-collapsed-buttons" data-value="month">Month</a></li>
               </ul>
             </li>
 
@@ -51,11 +54,11 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle mag-dd" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="dd-text">All Earthquakes</span> <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#" data-target="significant">Significant Earthquakes</a></li>
-                <li><a href="#" data-target="4.5">M4.5+ Earthquakes</a></li>
-                <li><a href="#" data-target="2.5">M2.5+ Earthquakes</a></li>
-                <li><a href="#" data-target="1.0">M1.0+ Earthquakes</a></li>
-                <li><a href="#" data-target="all">All Earthquakes</a></li>
+                <li><a href="#" data-toggle="collapse" data-target="#navbar-collapsed-buttons" data-value="significant">Significant Earthquakes</a></li>
+                <li><a href="#" data-toggle="collapse" data-target="#navbar-collapsed-buttons" data-value="4.5">M4.5+ Earthquakes</a></li>
+                <li><a href="#" data-toggle="collapse" data-target="#navbar-collapsed-buttons" data-value="2.5">M2.5+ Earthquakes</a></li>
+                <li><a href="#" data-toggle="collapse" data-target="#navbar-collapsed-buttons" data-value="1.0">M1.0+ Earthquakes</a></li>
+                <li><a href="#" data-toggle="collapse" data-target="#navbar-collapsed-buttons" data-value="all">All Earthquakes</a></li>
               </ul>
             </li>
           </ul>

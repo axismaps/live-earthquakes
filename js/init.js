@@ -6,13 +6,13 @@
 
   $('.time-span-dd').next().find('a').on('click', function () {
     $('.time-span-dd .dd-text').text($(this).text());
-    timespan = $(this).attr('data-target');
+    timespan = $(this).attr('data-value');
     addLayer();
   });
 
   $('.mag-dd').next().find('a').on('click', function () {
     $('.mag-dd .dd-text').text($(this).text());
-    mag = $(this).attr('data-target');
+    mag = $(this).attr('data-value');
     addLayer();
   });
 
