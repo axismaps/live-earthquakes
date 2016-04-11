@@ -52,8 +52,49 @@
            var magnitude = feature.properties.mag;
            geojsonMarkerOptions.radius = Math.round(magnitude);
            return L.circleMarker(latlng, geojsonMarkerOptions);
+         },
+         onEachFeature: function (feature, layer) {
+           layer
+            .on('mouseover', function (e) { showProbe(e); })
+            .on('mouseout', hideProbe);
          }
        }).addTo(atlas);
      });
+   }
+
+   /* ------ Probe ------ */
+
+   var probeTimeout;
+
+   $('.probe')
+     .on('mouseover', function () {
+       clearTimeout(probeTimeout);
+     })
+     .on('mouseout', function () {
+       probeTimeout = setTimeout(function () {
+         $('.probe').hide();
+       }, 100);
+     });
+
+   function showProbe(e) {
+     clearTimeout(probeTimeout);
+
+     var props = e.target.feature.properties;
+     $('.probe--mag').text(props.mag);
+     $('.probe--place').text(props.place);
+     $('.probe--url').html('<a href="' + props.url + '">' + props.url + '</a>');
+
+     $('.probe')
+      .css({
+        left: e.layerPoint.x - $('.probe').width() / 2,
+        top: e.layerPoint.y - $('.probe').height(),
+      })
+      .show();
+   }
+
+   function hideProbe() {
+     probeTimeout = setTimeout(function () {
+       $('.probe').hide();
+     }, 200);
    }
 })(jQuery, L);

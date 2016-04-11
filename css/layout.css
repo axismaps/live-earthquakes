@@ -23,3 +23,36 @@ body {
 .current-feed {
   font-weight: bold;
 }
+
+.probe {
+  background-color: #fff;
+  border: 1px solid #333;
+  border-radius: 4px;
+  display: none;
+  padding: 10px;
+  position: absolute;
+}
+
+.probe:after, .probe:before {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.probe:after {
+	border-color: rgba(204, 204, 204, 0);
+	border-top-color: #fff;
+	border-width: 20px;
+	margin-left: -20px;
+}
+.probe:before {
+	border-color: rgba(51, 51, 51, 0);
+	border-top-color: #333;
+	border-width: 21px;
+	margin-left: -21px;
+}
