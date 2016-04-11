@@ -26,6 +26,7 @@ body {
   display: none;
   padding: 10px;
   position: absolute;
+  word-break: break-word;
 }
 
 .probe:after, .probe:before {

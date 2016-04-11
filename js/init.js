@@ -80,7 +80,7 @@
        }, 100);
      });
 
-  $('.map').on('click', hideProbe);
+  atlas.on('click dragstart', hideProbe);
 
   function showProbe(e) {
      clearTimeout(probeTimeout);
@@ -94,6 +94,7 @@
 
      $('.probe')
       .css({
+        'max-width': $('body').width() - 30,
         left: pointLocation.x - ($('.probe').width() / 2) - 11,
         top: pointLocation.y - ($('.probe').height()) + 2,
       })
