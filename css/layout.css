@@ -7,8 +7,8 @@ body {
   padding-top: 50px; /* deal with bootstrap nav bar */
 }
 
-.navbar-brand {
-  /*padding: 0 15px;*/
+.navbar {
+  padding-left: 10px;
 }
 
 .navbar-brand img {
