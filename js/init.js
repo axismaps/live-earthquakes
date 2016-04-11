@@ -1,5 +1,19 @@
 (function ($, L) {
 
+  /* ------ Nav bar events Setup ------ */
+  var mag = 'all';
+  var timespan = 'week';
+
+  $('.time-span-dd').next().find('a').on('click', function () {
+    timespan = $(this).attr('data-target');
+    addLayer();
+  });
+
+  $('.mag-dd').next().find('a').on('click', function () {
+    mag = $(this).attr('data-target');
+    addLayer();
+  });
+
   /* ------ Leaflet Setup ------ */
   var atlas = L.map('atlas').setView([20, 0], 3);
   var earthquake;
@@ -21,11 +35,13 @@
    };
 
    /* ------ USGS feeds ------ */
-   addLayer('http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson'); //initial load
+   addLayer(); //initial load
 
-   function addLayer(jsonLocation) {
+   function addLayer() {
      if (earthquake) atlas.removeLayer(earthquake);
-     $.getJSON(jsonLocation, function (jsondata) {
+
+     var feed = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/' + mag + '_' + timespan + '.geojson';
+     $.getJSON(feed, function (jsondata) {
        earthquake = L.geoJson(jsondata, {
          pointToLayer: function (feature, latlng) {
            return L.circleMarker(latlng, geojsonMarkerOptions);
