@@ -53,7 +53,7 @@
        earthquake = L.geoJson(jsondata, {
          pointToLayer: function (feature, latlng) {
            var magnitude = feature.properties.mag;
-           geojsonMarkerOptions.radius = Math.round(magnitude);
+           geojsonMarkerOptions.radius = Math.round(magnitude + 3);
            return L.circleMarker(latlng, geojsonMarkerOptions);
          },
          onEachFeature: function (feature, layer) {
