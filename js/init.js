@@ -86,8 +86,8 @@
 
      $('.probe')
       .css({
-        left: e.layerPoint.x - $('.probe').width() / 2,
-        top: e.layerPoint.y - $('.probe').height(),
+        left: e.target._point.x - ($('.probe').width() / 2) - 11,
+        top: e.target._point.y - ($('.probe').height()) + 2,
       })
       .show();
    }
