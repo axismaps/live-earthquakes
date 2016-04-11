@@ -85,7 +85,7 @@
      var props = e.target.feature.properties;
      $('.probe--mag').text(props.mag);
      $('.probe--place').text(props.place);
-     $('.probe--url').html('<a href="' + props.url + '">' + props.url + '</a>');
+     $('.probe--url').html('<a target="_blank" href="' + props.url + '">' + props.url + '</a>');
 
      var pointLocation = atlas.latLngToContainerPoint(e.target.getLatLng());
 
