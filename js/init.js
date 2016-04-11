@@ -31,11 +31,11 @@
    /* ------ Default values ------ */
    var geojsonMarkerOptions = {
      radius: 8,
-     fillColor: "#ff7800",
+     fillColor: "#de2d26",
      color: "#000",
      weight: 1,
-     opacity: 1,
-     fillOpacity: 0.8
+     opacity: 0.8,
+     fillOpacity: 0.6
    };
 
    /* ------ USGS feeds ------ */
@@ -49,6 +49,8 @@
        $('.current-feed').text(jsondata.metadata.title);
        earthquake = L.geoJson(jsondata, {
          pointToLayer: function (feature, latlng) {
+           var magnitude = feature.properties.mag;
+           geojsonMarkerOptions.radius = Math.round(magnitude);
            return L.circleMarker(latlng, geojsonMarkerOptions);
          }
        }).addTo(atlas);
