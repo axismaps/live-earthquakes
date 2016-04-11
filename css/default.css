@@ -8,6 +8,8 @@ Axis Maps
 html,
 body {
   height: 100%;
+  margin: 0;
+  padding: 0;
   width: 100%;
 }
 
@@ -50,25 +52,6 @@ italic, em {
 }
 
 /* Style Defaults that we use alot */
-
-.btn { /* Extend the colors with '.btn--*' in theme.css */
-  border-radius: 5px;
-  display: inline-block;
-  padding: 1em 2em;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.btn-group .btn:first-child {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.btn-group .btn:last-child {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin-left: -5px;
-}
 
 .horz-bar {
   border-top: 1px solid; /* Border color/opacity should be specified in theme.css */
