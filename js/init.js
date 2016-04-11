@@ -42,6 +42,7 @@
 
      var feed = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/' + mag + '_' + timespan + '.geojson';
      $.getJSON(feed, function (jsondata) {
+       $('.current-feed').text(jsondata.metadata.title);
        earthquake = L.geoJson(jsondata, {
          pointToLayer: function (feature, latlng) {
            return L.circleMarker(latlng, geojsonMarkerOptions);

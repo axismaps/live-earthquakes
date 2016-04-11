@@ -14,3 +14,12 @@ body {
 .navbar-brand img {
   height: 20px;
 }
+
+.current-feed--wrapper {
+  float: right;
+  text-align: right;
+}
+
+.current-feed {
+  font-weight: bold;
+}
