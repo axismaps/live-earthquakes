@@ -43,6 +43,7 @@
      if (earthquake) atlas.removeLayer(earthquake);
 
      var feed = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/' + mag + '_' + timespan + '.geojson';
+     $( '.timestamp--loading' ).show();
      $.getJSON(feed, function (jsondata) {
 
        //update timestamp on nav bar
@@ -64,6 +65,7 @@
             .on('mouseout', hideProbe );
          },
        }).addTo(atlas);
+       $( '.timestamp--loading' ).hide();
      });
    }
 
