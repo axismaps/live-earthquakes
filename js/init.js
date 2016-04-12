@@ -59,8 +59,9 @@
 
          onEachFeature: function (feature, layer) {
            layer
-            .on('mouseover click', function (e) { showProbe(e); })
-            .on('mouseout', hideProbe);
+            .on('mouseover', function (e) { showProbe(e); })
+            .on('click', function (e) { gotoLink(e); })
+            .on('mouseout', hideProbe );
          },
        }).addTo(atlas);
      });
@@ -69,6 +70,7 @@
   /* ------ Probe ------ */
 
   var probeTimeout;
+  var highlighted;
 
   $('.probe')
      .on('mouseover', function () {
@@ -80,15 +82,18 @@
        }, 100);
      });
 
-  atlas.on('click dragstart', hideProbe);
-
+  //atlas.on('click dragstart', hideProbe);
+  
+  function gotoLink(e) {
+    window.open(e.target.feature.properties.url,'_blank');
+  }
+  
   function showProbe(e) {
      clearTimeout(probeTimeout);
 
      var props = e.target.feature.properties;
      $('.probe--mag').text(props.mag);
      $('.probe--place').text(props.place);
-     $('.probe--url').html('<a target="_blank" href="' + props.url + '">' + props.url + '</a>');
 
      var pointLocation = atlas.latLngToContainerPoint(e.target.getLatLng());
 
@@ -98,11 +103,18 @@
         top: pointLocation.y - ($('.probe').height()) + 2,
       })
       .show();
+      
+      highlighted = e.target;
+      highlighted
+        .bringToFront()
+        .setStyle( { weight: 2 } );
    }
 
-  function hideProbe() {
-     probeTimeout = setTimeout(function () {
-       $('.probe').hide();
-     }, 100);
+  function hideProbe(e) {
+     $('.probe').hide();
+     if( highlighted ){
+       highlighted.setStyle( { weight: 1 } );
+       highlighted = undefined;
+    }
    }
 })(jQuery, L);

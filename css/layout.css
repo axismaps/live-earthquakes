@@ -53,6 +53,10 @@ body {
 	margin-left: -21px;
 }
 
+p.probe--line{
+  margin: 2px 0;
+}
+
 @media (max-width: 500px) {
   .probe {
     width: 200px;
