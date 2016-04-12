@@ -1,7 +1,7 @@
 (function ($, L) {
 
   /* ------ Nav bar events Setup ------ */
-  var mag = 'all';
+  var mag = '1.0';
   var timespan = 'week';
 
   $('.time-span-dd').next().find('a').on('click', function () {
